@@ -1,0 +1,28 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *defaults
+  host: localhost
+  database: interior_deve
+  pool: 5
+  username: postgres
+  password: postgres
+
+test:
+  <<: *defaults
+  host: localhost
+  pool: 5
+  username: postgres
+  password: postgres
+  database: interior_test
+
+production:
+  <<: *defaults
+  database: interior_pro
+  username: postgres
+  password: postgres
+  host:  <%= ENV["DB_URL"] %>
+  # pool: <%= ENV['MAX_THREADS'] || ENV["DB_POOL"] || 5 %>
+  pool: <%= ENV["DB_POOL"] %>
