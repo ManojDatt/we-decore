@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910124249) do
+ActiveRecord::Schema.define(version: 20180912115219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_us", force: :cascade do |t|
+    t.string   "title"
+    t.text     "message"
+    t.string   "picture"
+    t.string   "logo"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -62,12 +79,15 @@ ActiveRecord::Schema.define(version: 20180910124249) do
     t.string   "image"
     t.string   "title"
     t.integer  "service_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "project_id"
+    t.boolean  "recomended",         default: false
+    t.index ["project_id"], name: "index_galleries_on_project_id", using: :btree
     t.index ["service_id"], name: "index_galleries_on_service_id", using: :btree
   end
 
@@ -78,6 +98,17 @@ ActiveRecord::Schema.define(version: 20180910124249) do
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "location"
+    t.string   "customer_name"
+    t.string   "customer_contact"
+    t.string   "customer_other_details"
+    t.string   "project_budget_details"
+    t.string   "discription"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "services", force: :cascade do |t|
@@ -121,5 +152,6 @@ ActiveRecord::Schema.define(version: 20180910124249) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "galleries", "projects"
   add_foreign_key "galleries", "services"
 end

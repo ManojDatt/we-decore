@@ -1,7 +1,7 @@
 <!-- header section -->
 <section class="banner" role="banner">
   <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="index.html">Decore</a>
+    <div class="header-content clearfix"> <a class="logo" href="index.html">V-Decore</a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
           <li><a href="#banner">Home</a></li>
@@ -75,7 +75,7 @@
   <section id="content-3-10" class="content-block data-section nopad content-3-10">
     <div class="image-container col-sm-6 col-xs-12 pull-left">
       <div class="background-image-holder">
-
+      <img src="<%= @about.picture.url %>" class="rounded-circle"/>
       </div>
     </div>
 
@@ -83,11 +83,11 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
           <div class="editContent">
-            <h3>About Our Company</h3>
+
+            <h3><img src="<%= @about.logo.url %>" class="rounded-circle col-sm-2"/> <%= @about.title %></h3>
           </div>
           <div class="editContent">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <p>Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p><%= @about.message %></p>
           </div>
           <nav role="navigation">
             <ul class="primary-nav">
@@ -131,73 +131,21 @@
         <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
       </div>
       <div class="row no-gutter">
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_01.jpg" class="work-box"> <img src="assets/portfolio_01.jpg" alt="">
+        <% @gallery.each do |gallery|%>
+        <div class="col-lg-3 col-md-6 col-sm-6 work">
+        <a href="<%= gallery.image.url %>" class="work-box">
+        <img src="<%= gallery.image.url(:thumb) %>" alt="">
           <div class="overlay">
             <div class="overlay-caption">
               <p><span class="icon icon-magnifying-glass"></span></p>
             </div>
           </div>
           <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_02.jpg" class="work-box"> <img src="assets/portfolio_02.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_03.jpg" class="work-box"> <img src="assets/portfolio_03.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_04.jpg" class="work-box"> <img src="assets/portfolio_04.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption"> 
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
+        </a> 
+        </div>
+        <% end %>
       </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_05.jpg" class="work-box"> <img src="assets/portfolio_05.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_06.jpg" class="work-box"> <img src="assets/portfolio_06.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_07.jpg" class="work-box"> <img src="assets/portfolio_07.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="assets/portfolio_08.jpg" class="work-box"> <img src="assets/portfolio_08.jpg" alt="">
-          <div class="overlay">
-            <div class="overlay-caption">
-              <p><span class="icon icon-magnifying-glass"></span></p>
-            </div>
-          </div>
-          <!-- overlay --> 
-        </a> </div>
-      </div>
+      
     </div>
   </section>
   <!-- gallery section --> 
@@ -209,62 +157,25 @@
         <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
       </div>
       <div class="row">
+      <% @teams.each do |team|%>
         <div class="col-md-3 col-sm-6">
-          <div class="person"><img src="assets/team-1.jpg" alt="" class="img-responsive">
+          <div class="person"><img src="<%= team.image.url %>" alt="" class="img-responsive">
             <div class="person-content">
-              <h4>Jonh Dow</h4>
-              <h5 class="role">Founder</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
+
+              <h4><%= team.name %></h4>
+              <h5 class="role"><%= team.designation %></h5>
+              <p><%= team.introduction %></p>
             </div>
             <ul class="social-icons clearfix">
-              <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#"><span class="fa fa-twitter"></span></a></li> 
-              <li><a href="#"><span class="fa fa-google-plus"></span></a></li> 
+            <% team.social_links.each do |link| %>
+              <li><a href="#"><span class="<%= link.link_icon_class%>"></span></a></li>
+              <!-- <li><a href="#"><span class="fa fa-twitter"></span></a></li>  -->
+              <!-- <li><a href="#"><span class="fa fa-google-plus"></span></a></li>  -->
+            <% end %>
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="person"> <img src="assets/team-2.jpg" alt="" class="img-responsive">
-            <div class="person-content">
-              <h4>Markus Linn</h4>
-              <h5 class="role">Creative</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-            </div>
-            <ul class="social-icons clearfix">
-              <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-              <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="person"> <img src="assets/team-3.jpg" alt="" class="img-responsive">
-            <div class="person-content">
-              <h4>Chris Jemes</h4>
-              <h5 class="role">Technical</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-            </div>
-            <ul class="social-icons clearfix">
-              <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-              <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="person"> <img src="assets/team-4.jpg" alt="" class="img-responsive">
-            <div class="person-content">
-              <h4>Vintes Mars</h4>
-              <h5 class="role">Marketing</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-            </div>
-            <ul class="social-icons clearfix">
-              <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-              <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-            </ul>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </section>
@@ -275,42 +186,16 @@
       <div class="row no-gutter">
         <div class="flexslider">
           <ul class="slides">
+          <% @testimonial.each do |testimonial|%>
             <li>
               <div class="col-md-12">
                 <blockquote>
-                  <h1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-                    semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                    <p>Chris Mentsl</p>
+                  <h1>“<%= testimonial.description %>”</h1>
+                    <p><%= testimonial.author %></p>
                   </blockquote>
                 </div>
               </li>
-              <li>
-                <div class="col-md-12">
-                  <blockquote>
-                    <h1>"Praesent eget risus vitae massa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-                      semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                      <p>Kristean velnly</p>
-                    </blockquote>
-                  </div>
-                </li>
-                <li>
-                  <div class="col-md-12">
-                    <blockquote>
-                      <h1>"Consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-                        semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                        <p>Markus Denny</p>
-                      </blockquote>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="col-md-12">
-                      <blockquote>
-                        <h1>"Vitae massa semper aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-                          semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                          <p>John Doe</p>
-                        </blockquote>
-                      </div>
-                    </li>
+              <% end %>
                   </ul>
                 </div>
               </div>

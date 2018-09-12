@@ -99,6 +99,7 @@
  .testimonials p {
  font-size: 12px;
 }
+}
 @media screen and (max-width: 480px) {
  .banner-text {
  padding-top: 45%;
@@ -108,6 +109,7 @@
 }
  .testimonials p {
  font-size: 12px;
+}
 }
 @media screen and (max-width: 320px) {
  .banner-text {

@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Process Images Version 
+
+Gallery.find_each { |u| u.image.reprocess! }
+
+or 
+
+rake paperclip:refresh CLASS=Gallery

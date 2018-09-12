@@ -5,6 +5,9 @@ index do
     selectable_column 
     column :name
     column :designation
+    column :image do |team|
+		        image_tag team.image
+		    end
     actions
 end
 
