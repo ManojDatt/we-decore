@@ -1,0 +1,3 @@
+require 'fcm'
+
+$fcm = FCM.new("AAAA2GqboQg:APA91bEAX680k7CvCvodhv9YUNe-plcCqIwUCyiEOFr3Ia2hde2ZJ_JBYENKETUVHm217e8M5PapNnt8zfBEKykXNn6WvuHrzjA7NLKq2qzby_BMoz5Lb3DVzxBm9-CyCBirg3KnflE7")

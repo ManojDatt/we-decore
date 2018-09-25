@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+rails generate paperclip Food image
 
 Process Images Version 
 
