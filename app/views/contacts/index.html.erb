@@ -75,7 +75,7 @@
   <section id="content-3-10" class="content-block data-section nopad content-3-10">
     <div class="image-container col-sm-6 col-xs-12 pull-left">
       <div class="background-image-holder">
-      <img src="<%= @about.picture.url %>" class="rounded-circle"/>
+      <img src="<%= @about.picture.url rescue ''%>" class="rounded-circle"/>
       </div>
     </div>
 
@@ -84,10 +84,10 @@
         <div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
           <div class="editContent">
 
-            <h3><img src="<%= @about.logo.url %>" class="rounded-circle col-sm-2"/> <%= @about.title %></h3>
+            <h3><img src="<%= @about.logo.url rescue '' %>" class="rounded-circle col-sm-2"/> <%= @about.try :title %></h3>
           </div>
           <div class="editContent">
-            <p><%= @about.message %></p>
+            <p><%= @about.try :message %></p>
           </div>
           <nav role="navigation">
             <ul class="primary-nav">
