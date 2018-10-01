@@ -3,7 +3,7 @@ class Api::V1::RequestsController < ApplicationController
 	before_action :validate_token, only: [:index, :create]
 
 	def create
-		if (7..11).include? Time.now.hour 
+		if (8..10).include? Time.now.hour 
 	 		# break fast time
 	 		@user.break_fasts.create(request_params)
 	 		render json: {code: 200, message: "Breakfast Request Send"}
@@ -21,7 +21,7 @@ class Api::V1::RequestsController < ApplicationController
 	end
 
 	def index
-	 	if (7..11).include? Time.now.hour 
+	 	if (8..10).include? Time.now.hour 
 	 		# break fast time
 	 		menu = Food.breakfasts
 	 		render json: {code: 200, menu: menu.select(:id, :image, :name, :discription), message: "Breakfast Items"}
