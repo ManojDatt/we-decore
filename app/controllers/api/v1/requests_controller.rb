@@ -55,6 +55,16 @@ class Api::V1::RequestsController < ApplicationController
 		end
 	end
 
+	def token_verification
+		auth_token = params(:auth_token)
+		@user = AdminUser.find_by(auth_token: auth_token)
+		unless auth_token and  @user
+			render json: {code: 500, message: "Invalid Auth Token"}
+		else
+			render json: {code: 200, message: "Valid Auth Token"}
+		end
+	end
+
 
 	private
 

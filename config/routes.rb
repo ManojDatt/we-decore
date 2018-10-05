@@ -14,10 +14,9 @@ Rails.application.routes.draw do
   		resources :requests, only:[:index, :create] do 
   			collection do
   				post 'login'
+          post 'token_verification'
   			end
   		end
-
-  		
   	end
   end
 
